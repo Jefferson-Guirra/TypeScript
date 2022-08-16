@@ -1,5 +1,9 @@
 "use strict";
-function greet(name, age) {
-    console.log(`Ola me chamo ${name} e tenho ${age}`);
-}
-greet('jefferson', '32');
+const person = {
+    name: 'jefferson',
+    age: 23,
+    contacts: ['elaine', 'jeniffer', 'mirela'],
+    years: [1998, 2002],
+    cpf: '07644444505'
+};
+console.log(person);
