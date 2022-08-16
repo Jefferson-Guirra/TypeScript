@@ -1,9 +1,23 @@
 "use strict";
+function findPerson(cpf) {
+    if (typeof cpf === 'string') {
+        console.log(cpf.toLowerCase());
+    }
+    else {
+        console.log(cpf.toFixed());
+    }
+}
+findPerson(1.3);
+function getPersonStatus(person) {
+    if (person.hungry) {
+        console.log('Está com fome');
+    }
+    else {
+        console.log('não esta com fome');
+    }
+}
 const person = {
-    name: 'jefferson',
-    age: 23,
-    contacts: ['elaine', 'jeniffer', 'mirela'],
-    years: [1998, 2002],
-    cpf: '07644444505'
+    sex: 'male',
+    hungry: false
 };
-console.log(person);
+getPersonStatus(person);
