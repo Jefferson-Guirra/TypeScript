@@ -3,3 +3,6 @@ function greet (name:string,age?:number){
 }
 
 greet('jefferson',32)
+
+
+type GreethMethod = (name:string)=> string
