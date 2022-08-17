@@ -1,4 +1,8 @@
 "use strict";
-const person = [1, 'jefferson'];
-
-
+function createPerson(firstName, lastName) {
+    if (lastName)
+        return { firstName, lastName };
+    else
+        return { firstName };
+}
+console.log(createPerson('jefferson'));
