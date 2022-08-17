@@ -1,9 +1,9 @@
 "use strict";
-const person = {
-    nome: 'jefferson',
-    sobrenome: 'guirra',
-    exibirNome() {
-        console.log(this.nome, this.sobrenome);
-    }
+const objectA = {
+    chaveA: 'valor A',
+    chaveB: 'valor B',
 };
-console.log(person.exibirNome());
+objectA.chaveA = 'novo valor';
+objectA.chaveB = 'outro valor';
+objectA.chaveC = 'valor novo criado';
+console.log(objectA);
