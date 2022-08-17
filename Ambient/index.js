@@ -1,8 +1,9 @@
 "use strict";
-function createPerson(firstName, lastName) {
-    if (lastName)
-        return { firstName, lastName };
-    else
-        return { firstName };
+function addOrConcat(a, b) {
+    if (typeof a === 'number' && typeof b === 'number')
+        console.log(a + b);
+    if (typeof a === 'string' && typeof b === 'string')
+        console.log(a + b);
 }
-console.log(createPerson('jefferson'));
+addOrConcat(10, 20);
+addOrConcat('30', '200');
