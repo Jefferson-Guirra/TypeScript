@@ -1,19 +1,15 @@
-type TemNome ={
-  nome:string
+type User = {
+  user: string
+  password: string | number
 }
+type VerifyUser = (user: User, sentUser: User) => boolean
 
-type TemSobrenome ={
-  sobrenome : string
+const verifyUser: VerifyUser = (user, sentUser) => {
+  return user.password === sentUser.password && user.user === sentUser.user
 }
-
-type TemIdade ={
-  idade:number
-}
-
-type Pessoa= TemIdade & TemNome & TemSobrenome
-
-const pessoa : Pessoa = {
-  idade:23,
-  nome:'Jefferson',
-  sobrenome:'Guirra'
-}
+console.log(
+  verifyUser(
+    { password: 123, user: 'jefferson' },
+    { password: 123, user: 'jefferson' }
+  )
+)

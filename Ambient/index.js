@@ -1,8 +1,5 @@
 "use strict";
-function setCorPreferida(pessoa, cor) {
-    return Object.assign(Object.assign({}, pessoa), { cor });
-}
-console.log(setCorPreferida({
-    age: 23,
-    name: 'JEFFERSON'
-}, 'Azul'));
+const verifyUser = (user, sentUser) => {
+    return user.password === sentUser.password && user.user === sentUser.user;
+};
+console.log(verifyUser({ password: 123, user: 'jefferson' }, { password: 123, user: 'jefferson' }));
