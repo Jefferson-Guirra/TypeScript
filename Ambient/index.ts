@@ -1,19 +1,19 @@
-type CorRgb = 'Vermelho' | 'Verde' | 'Azul'
-type CorCMYK = 'Ciano' | 'Magenta' | 'Amarelo' | 'Preto'
-type CorPreferida = CorCMYK | CorRgb
-
-type Pessoa = {
-  name:string,
-  age:number,
-  cor ? : string
+type TemNome ={
+  nome:string
 }
 
-function setCorPreferida(pessoa:Pessoa,cor:CorPreferida):Pessoa{
-  return {...pessoa,cor}
+type TemSobrenome ={
+  sobrenome : string
 }
 
-console.log(setCorPreferida({
-  age:23,
-  name:'JEFFERSON'
-},'Azul'
-))
+type TemIdade ={
+  idade:number
+}
+
+type Pessoa= TemIdade & TemNome & TemSobrenome
+
+const pessoa : Pessoa = {
+  idade:23,
+  nome:'Jefferson',
+  sobrenome:'Guirra'
+}
