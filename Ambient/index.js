@@ -1,23 +1,24 @@
 "use strict";
-class Empresa {
-    constructor(nome) {
-        this.colaboradores = [];
-        this.nome = nome;
-    }
-    adicionaColaboradores(colaborador) {
-        this.colaboradores.push(colaborador);
-    }
-}
-class Colaborador {
-    constructor(nome, sobrenome) {
+class Pessoa {
+    constructor(nome, idade, sobrenome, cpf) {
+        this.idade = idade;
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this._cpf = cpf;
+    }
+    getIdade() {
+        return this.idade;
+    }
+    getNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+    set cpf(cpf) {
+        this._cpf = cpf;
+    }
+    get cpf() {
+        return this._cpf.replace(/\D/g, '');
     }
 }
-const colaborador1 = new Colaborador('Jefferson', 'Guirra');
-const colaborador2 = new Colaborador('Mirela', 'Tamires');
-const empresa1 = new Empresa('Jefferson');
-empresa1.adicionaColaboradores(colaborador1);
-empresa1.adicionaColaboradores(colaborador2);
-console.log(empresa1);
-console.log(empresa1.nome);
+const pessoa = new Pessoa('jefferson', 23, 'guirra', '076.444.445-05');
+pessoa.cpf = '076.444.445-05';
+console.log(pessoa.cpf);
