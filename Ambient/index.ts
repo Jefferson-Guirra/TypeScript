@@ -1,12 +1,19 @@
-function addOrConcat ( a:number | string, b: number|string){
-  if ( typeof a === 'number' && typeof b ==='number') {
-    console.log(a+b)
-    return a + b
-  }
-  return `${a}${b}`
-  
+type CorRgb = 'Vermelho' | 'Verde' | 'Azul'
+type CorCMYK = 'Ciano' | 'Magenta' | 'Amarelo' | 'Preto'
+type CorPreferida = CorCMYK | CorRgb
+
+type Pessoa = {
+  name:string,
+  age:number,
+  cor ? : string
 }
 
+function setCorPreferida(pessoa:Pessoa,cor:CorPreferida):Pessoa{
+  return {...pessoa,cor}
+}
 
-addOrConcat(10,20)
-addOrConcat('30','200')
+console.log(setCorPreferida({
+  age:23,
+  name:'JEFFERSON'
+},'Azul'
+))
