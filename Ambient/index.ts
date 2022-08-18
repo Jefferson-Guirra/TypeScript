@@ -1,28 +1,23 @@
-class Pessoa {
-  static idadePadrao = 0
-  static cpfPadrao = '000.000.000-00'
-  constructor(
-    public nome: string,
-    public sobrenome: string,
-    public idade: number,
-    private _cpf: string
+//Singleton - Gof | Factory Method
+class Database {
+  private static database: Database
+  private constructor(
+    private host: string,
+    private user: string,
+    private password: string | number
   ) {}
 
-  static criaPessoa(nome: string, sobrenome: string): Pessoa {
-    return new Pessoa(nome, sobrenome, Pessoa.idadePadrao, Pessoa.cpfPadrao)
-  }
-  set cpf(cpf: string) {
-    this._cpf = cpf
+  connect(): void {
+    console.log(`Conectado: ${this.host}, ${this.user}, ${this.password}`)
   }
 
-  get cpf(): string {
-    return this._cpf.replace(/\D/g, '')
+  static getDatabase(host: string, user: string, password: string) {
+    if (Database.database) return Database.database
+    Database.database = new Database(host, user, password)
+    return Database.database
   }
 }
-const pessoa1 = Pessoa.criaPessoa('jefferson', 'guirra')
-const pessoa = new Pessoa('jefferson', 'guirra', 23, '07644444505')
-pessoa.cpf = '076.444.445-05'
-console.log(pessoa1)
-console.log(pessoa)
 
-//ATRIBUTOS E METODOS ESTATICOS PODEM SER ACESSADOS DIRETAMENTE NO CONSTRUTOR PRINCIPAL (PESSOA)
+const db1 = Database.getDatabase('localhost', 'root', '123')
+const db2 = Database.getDatabase('localhost', 'root', '123')
+console.log(db1 === db2)
