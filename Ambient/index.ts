@@ -1,38 +1,30 @@
-abstract class Personagem {
-  constructor(
-    protected nome: string,
-    protected ataque: number,
-    protected vida: number
-  ) {}
-  
-  perderVida(ataque:number) : void{
-    this.vida -= ataque
-    console.log(`${this.nome} agora tem ${this.vida} pontos de vida.`)
+class Motor {
+  ligar(): void {
+    console.log('RPM > 0 carro ligou.')
   }
-  atacar(person:Personagem) : void{
-    this.bordao()
-    person.perderVida(this.ataque)
+  acelerar(): void {
+    console.log('RPM aumentou carro acelerou.')
   }
-  abstract bordao():void;
-}
-
-class Arqueiro extends Personagem{
-  bordao(): void {
-      console.log('Por Baldur derrotarei todos os Orcs, AAAAAAAAAAAA')
+  parar(): void {
+    console.log('RPM === 0 carrou parou.')
   }
 }
-class Orc extends  Personagem{
-  bordao(): void {
-      console.log('Um pequeno verme, matarei lentamente.....')
+
+class Carro {
+  private readonly motor:Motor = new Motor()
+  ligar() : void {
+    motor.ligar()
+  }
+  acelerar() : void{
+    motor.acelerar()
+  }
+
+  parar() : void {
+    motor.parar()
   }
 }
-const arqueiro = new Arqueiro('Arqueiro',100,1000)
-const orc = new Orc('Orc', 90, 1000)
-
-arqueiro.atacar(orc)
-arqueiro.atacar(orc)
-arqueiro.atacar(orc)
-
-
-
-//Funciona como um contrato quando aplicado a uma classe a mesma so pode ser extendida, em metodos ele obriga as classes que extenderam a classe mãe tenham este metodo.
+const motor = new Motor ()
+const carro = new Carro()
+carro.ligar()
+carro.acelerar()
+carro.parar()

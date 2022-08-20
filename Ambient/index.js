@@ -1,31 +1,31 @@
 "use strict";
-class Personagem {
-    constructor(nome, ataque, vida) {
-        this.nome = nome;
-        this.ataque = ataque;
-        this.vida = vida;
+class Motor {
+    ligar() {
+        console.log('RPM > 0 carro ligou.');
     }
-    perderVida(ataque) {
-        this.vida -= ataque;
-        console.log(`${this.nome} agora tem ${this.vida} pontos de vida.`);
+    acelerar() {
+        console.log('RPM aumentou carro acelerou.');
     }
-    atacar(person) {
-        this.bordao();
-        person.perderVida(this.ataque);
+    parar() {
+        console.log('RPM === 0 carrou parou.');
     }
 }
-class Arqueiro extends Personagem {
-    bordao() {
-        console.log('Por Baldur derrotarei todos os Orcs, AAAAAAAAAAAA');
+class Carro {
+    constructor() {
+        this.motor = new Motor();
+    }
+    ligar() {
+        motor.ligar();
+    }
+    acelerar() {
+        motor.acelerar();
+    }
+    parar() {
+        motor.parar();
     }
 }
-class Orc extends Personagem {
-    bordao() {
-        console.log('Um pequeno verme, matarei lentamente.....');
-    }
-}
-const arqueiro = new Arqueiro('Arqueiro', 100, 1000);
-const orc = new Orc('Orc', 90, 1000);
-arqueiro.atacar(orc);
-arqueiro.atacar(orc);
-arqueiro.atacar(orc);
+const motor = new Motor();
+const carro = new Carro();
+carro.ligar();
+carro.acelerar();
+carro.parar();
