@@ -1,30 +1,18 @@
-class Motor {
-  ligar(): void {
-    console.log('RPM > 0 carro ligou.')
-  }
-  acelerar(): void {
-    console.log('RPM aumentou carro acelerou.')
-  }
-  parar(): void {
-    console.log('RPM === 0 carrou parou.')
-  }
+type tipoPessoa = {
+  nome: string
+  sobrenome: string
+  nomeCompleto():string
 }
 
-class Carro {
-  private readonly motor:Motor = new Motor()
-  ligar() : void {
-    motor.ligar()
-  }
-  acelerar() : void{
-    motor.acelerar()
+class Pessoa implements tipoPessoa {
+  constructor(public nome: string,public sobrenome:string) {}
+  nomeCompleto(): string {
+      return this.nome + ' ' + this.sobrenome
   }
 
-  parar() : void {
-    motor.parar()
-  }
 }
-const motor = new Motor ()
-const carro = new Carro()
-carro.ligar()
-carro.acelerar()
-carro.parar()
+
+const pessoa = new Pessoa('jefferson','guirra')
+console.log(pessoa.nomeCompleto())
+
+

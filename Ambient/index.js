@@ -1,31 +1,12 @@
 "use strict";
-class Motor {
-    ligar() {
-        console.log('RPM > 0 carro ligou.');
+class Pessoa {
+    constructor(nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
     }
-    acelerar() {
-        console.log('RPM aumentou carro acelerou.');
-    }
-    parar() {
-        console.log('RPM === 0 carrou parou.');
+    nomeCompleto() {
+        return this.nome + ' ' + this.sobrenome;
     }
 }
-class Carro {
-    constructor() {
-        this.motor = new Motor();
-    }
-    ligar() {
-        motor.ligar();
-    }
-    acelerar() {
-        motor.acelerar();
-    }
-    parar() {
-        motor.parar();
-    }
-}
-const motor = new Motor();
-const carro = new Carro();
-carro.ligar();
-carro.acelerar();
-carro.parar();
+const pessoa = new Pessoa('jefferson', 'guirra');
+console.log(pessoa.nomeCompleto());
