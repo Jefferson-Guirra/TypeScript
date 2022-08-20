@@ -1,18 +1,34 @@
-type tipoPessoa = {
-  nome: string
-  sobrenome: string
-  nomeCompleto():string
+function add (a:unknown,b:unknown) : string | number {
+  return typeof a === 'number' && typeof b === 'number' ?  a + b : `${a}${b}`
+ 
+  
+  
+}
+console.log(add('2','3'))
+
+type Pessoa = { tipo:'pessoa', nome: string}
+type Animal = { tipo:'animal', cor: string }
+
+type PessoaouAnimal = Pessoa | Animal
+
+class Aluno implements Pessoa{
+  tipo: "pessoa" = 'pessoa'
+  constructor(public nome:string){}
 }
 
-class Pessoa implements tipoPessoa {
-  constructor(public nome: string,public sobrenome:string) {}
-  nomeCompleto(): string {
-      return this.nome + ' ' + this.sobrenome
+function mostrarNome (obj:PessoaouAnimal) : void{
+  //if('nome' in obj) console.log(obj.nome) 
+  //else console.log(obj.cor)
+  // if(obj instanceof Aluno) console.log(obj.nome)
+  switch (obj.tipo){
+    case "animal":
+      console.log(obj.cor)
+      break
+    case "pessoa":
+      console.log(obj.nome)
+      break
   }
-
 }
 
-const pessoa = new Pessoa('jefferson','guirra')
-console.log(pessoa.nomeCompleto())
-
-
+mostrarNome(new Aluno('Jefferson'))
+mostrarNome({tipo:'animal',cor:'Azul'})
