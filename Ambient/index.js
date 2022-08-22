@@ -1,24 +1,19 @@
 "use strict";
-class Votation {
-    constructor(frase, opcao) {
-        this.frase = frase;
-        this.opcao = opcao;
-    }
-    getFrase() {
-        console.log(this.frase);
-    }
-    votar(value) {
-        console.log(value in this.opcao);
-        if (value in this.opcao)
-            this.opcao[value] += 1;
-    }
-    getObj() {
-        console.log(this.opcao);
-    }
+function isNumber(a) {
+    return typeof a === 'number';
 }
-const linguagens = new Votation('Vote na sua linguagem preferida', { JavaScript: 0, python: 0, Ruby: 0 });
-linguagens.getFrase();
-linguagens.getObj();
-linguagens.votar('JavaScript');
-linguagens.votar('JavaScript');
-linguagens.getObj();
+console.log(isNumber('12'));
+console.log(isNumber(12));
+function Soma(...args) {
+    const retorno = args.reduce((acc, vl) => {
+        if (isNumber(acc) && isNumber(vl)) {
+            const soma = acc + vl;
+            return soma;
+        }
+        else
+            return acc;
+    }, 0);
+    return retorno;
+}
+console.log(Soma(1, 2, 4));
+console.log(Soma(...[1, 2, 3, 'a', 'b', 'c', 1]));
