@@ -1,18 +1,11 @@
 type tipoPessoa = {
   nome: string
-  sobrenome: string
-  nomeCompleto():string
+  idade: number
 }
 
 class Pessoa implements tipoPessoa {
-  constructor(public nome: string,public sobrenome:string) {}
-  nomeCompleto(): string {
-      return this.nome + ' ' + this.sobrenome
-  }
-
+  constructor(public nome: string, public idade: number) {}
 }
 
-const pessoa = new Pessoa('jefferson','guirra')
-console.log(pessoa.nomeCompleto())
 
-
+const perssoa = new Pessoa('jefferson',23)

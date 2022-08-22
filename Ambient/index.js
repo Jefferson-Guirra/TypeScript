@@ -1,26 +1,24 @@
 "use strict";
-function add(a, b) {
-    return typeof a === 'number' && typeof b === 'number' ? a + b : `${a}${b}`;
-}
-console.log(add('2', '3'));
-class Aluno {
-    constructor(nome) {
-        this.nome = nome;
-        this.tipo = 'pessoa';
+class Votation {
+    constructor(frase, opcao) {
+        this.frase = frase;
+        this.opcao = opcao;
+    }
+    getFrase() {
+        console.log(this.frase);
+    }
+    votar(value) {
+        console.log(value in this.opcao);
+        if (value in this.opcao)
+            this.opcao[value] += 1;
+    }
+    getObj() {
+        console.log(this.opcao);
     }
 }
-function mostrarNome(obj) {
-    //if('nome' in obj) console.log(obj.nome) 
-    //else console.log(obj.cor)
-    // if(obj instanceof Aluno) console.log(obj.nome)
-    switch (obj.tipo) {
-        case "animal":
-            console.log(obj.cor);
-            break;
-        case "pessoa":
-            console.log(obj.nome);
-            break;
-    }
-}
-mostrarNome(new Aluno('Jefferson'));
-mostrarNome({ tipo: 'animal', cor: 'Azul' });
+const linguagens = new Votation('Vote na sua linguagem preferida', { JavaScript: 0, python: 0, Ruby: 0 });
+linguagens.getFrase();
+linguagens.getObj();
+linguagens.votar('JavaScript');
+linguagens.votar('JavaScript');
+linguagens.getObj();
