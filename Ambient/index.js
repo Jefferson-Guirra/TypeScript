@@ -17,20 +17,22 @@ let Animal = class Animal {
     }
 };
 Animal = __decorate([
-    decorator,
+    decorator('valor1', 'valor2'),
     __metadata("design:paramtypes", [String, String])
 ], Animal);
 exports.Animal = Animal;
-function decorator(value) {
-    return class extends value {
-        constructor(...args) {
-            super(...args);
-            this.cor = this.inverte(args[0]);
-            this.nome = this.inverte(args[1]);
-        }
-        inverte(valor) {
-            return valor.split('').reverse().join('');
-        }
+function decorator(param1, param2) {
+    return function (value) {
+        return class extends value {
+            constructor(...args) {
+                super(...args);
+                this.cor = this.inverte(args[0]);
+                this.nome = this.inverte(args[1]);
+            }
+            inverte(valor) {
+                return valor.split('').reverse().join('') + ' ' + param1 + ' ' + param2;
+            }
+        };
     };
 }
 //const animalDecorator = Decorator(Animal)
