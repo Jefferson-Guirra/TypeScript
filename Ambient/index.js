@@ -9,33 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Animal = void 0;
-let Animal = class Animal {
-    constructor(cor, nome) {
-        this.cor = cor;
-        this.nome = nome;
-    }
-};
-Animal = __decorate([
-    decorator('valor1', 'valor2'),
-    __metadata("design:paramtypes", [String, String])
-], Animal);
-exports.Animal = Animal;
-function decorator(param1, param2) {
-    return function (value) {
-        return class extends value {
-            constructor(...args) {
-                super(...args);
-                this.cor = this.inverte(args[0]);
-                this.nome = this.inverte(args[1]);
-            }
-            inverte(valor) {
-                return valor.split('').reverse().join('') + ' ' + param1 + ' ' + param2;
-            }
-        };
+exports.UmaPessoa = void 0;
+function decorator(classPrototype, nome) {
+    let valorPropriedade;
+    return {
+        get: () => valorPropriedade,
+        set: (valor) => valorPropriedade = valor.split('').reverse().join('')
     };
 }
-//const animalDecorator = Decorator(Animal)
-const animal = new Animal('azul', 'Gato');
-console.log(animal.cor);
-console.log(animal.nome);
+class UmaPessoa {
+    constructor(nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+    msg() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+}
+__decorate([
+    decorator,
+    __metadata("design:type", String)
+], UmaPessoa.prototype, "nome", void 0);
+exports.UmaPessoa = UmaPessoa;
+const pessoa = new UmaPessoa('jefferson', 'guirra');
+console.log(pessoa.msg());
