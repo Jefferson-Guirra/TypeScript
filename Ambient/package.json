@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "init": "tsc --init"
+    "init": "tsc --init",
+    "decorators":"tsc --target ES5 --experimentalDecorators"
   },
   "author": "",
   "license": "ISC",
