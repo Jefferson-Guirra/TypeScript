@@ -14,6 +14,8 @@
     "typescript": "^4.7.4"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "commonjs": "latest",
+    "requirejs": "latest"
   }
 }
