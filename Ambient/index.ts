@@ -5,3 +5,7 @@ export default class Messaging {
   }
 }
 
+export class Product{
+  constructor(public name : string, public price : number){}
+}
+
