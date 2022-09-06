@@ -4,7 +4,7 @@ const creatSut = (name : string, price : number) : Product => {
   return new Product(name, price)
 }
 
-describe('Messaging', () => {
+describe('should have propetries name and price', () => {
   afterEach(() => jest.clearAllMocks())
 
   it('should return undefined', () => {
