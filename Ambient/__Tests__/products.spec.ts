@@ -1,4 +1,4 @@
-import {Product} from '../index'
+import {Product} from '../Ts-script/index'
 
 const creatSut = (name : string, price : number) : Product => {
   return new Product(name, price)

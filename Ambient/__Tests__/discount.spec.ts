@@ -1,4 +1,4 @@
-import { Discount, FifityPercentDiscount, NoDiscount,TenPercentDiscount } from '../index'
+import { Discount, FifityPercentDiscount, NoDiscount,TenPercentDiscount } from '../Ts-script/index'
 
 const creatSut = (className: new()=> Discount): Discount => {
   return new className

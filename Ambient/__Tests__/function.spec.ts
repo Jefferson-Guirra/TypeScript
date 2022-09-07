@@ -1,5 +1,6 @@
-import { soma } from "../function";
+import { soma } from "../Ts-script/function";
 type Function = (a:number,b:number)=>number
+
 describe('Testando Funções',()=>{
 afterEach(() => jest.clearAllMocks())
 const createSut = (functionType:Function)=>functionType

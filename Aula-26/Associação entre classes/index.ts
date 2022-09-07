@@ -17,13 +17,12 @@ class Escritor {
   escrever() : void{
     if(this._ferramenta=== undefined)  console.log('não posso escrever sem ferramenta')
     else console.log(`Escreveu com ${this._ferramenta?.getNome()}`)
-   
   }
 }
 
 class Caneta extends Ferramenta{
   escrever(): void {
-      console.log(`Escreveu com ${this.nome}`)
+    console.log(`Escreveu com ${this.nome}`)
   }
 }
 class Lápis extends Ferramenta {

@@ -1,4 +1,4 @@
-import Messaging from './index'
+import Messaging from '../Ts-script/index'
 
   const creatSut= (value:string)=>{
     return new Messaging(value)
