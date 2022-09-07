@@ -9,6 +9,8 @@ export class Product{
   constructor(public name : string, public price : number){}
 }
 
+
+
 export abstract class Discount{
   protected discount = 0
   calculate(price:number):number{

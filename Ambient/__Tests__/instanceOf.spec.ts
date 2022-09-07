@@ -13,7 +13,7 @@ describe('testing instanceOf',()=>{
     const sut = createSut(personName,'jefferson')
     const sut2 = new Test(22)
     expect(sut).toBeInstanceOf(personName)
-    expect(sut2).toBeInstanceOf(personName)
+    /*expect(sut2).toBeInstanceOf(personName)* testing error*/
 
   })
 })
