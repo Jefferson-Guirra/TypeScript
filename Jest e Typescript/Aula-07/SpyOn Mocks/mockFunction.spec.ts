@@ -1,5 +1,5 @@
-import { filterCharacter, FunctionType } from '../Ts-script/FunctionTest'
-import * as  Logger  from '../Ts-script/Logger';
+import { filterCharacter, FunctionType } from '../FunctionTest'
+import * as  Logger  from '../Logger';
 
 
 describe('filtreCharacter', () => {
